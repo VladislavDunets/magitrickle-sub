@@ -1,0 +1,30 @@
+# MagiTrickle subscription: bundles/gamer
+# Generated automatically. One rule per line.
+
+discord.com
+discord.gg
+discord.media
+discordapp.com
+discordapp.net
+discordcdn.com
+epicgames.com
+epicgames.dev
+gamepass.com
+jtvnw.net
+playstation.com
+playstation.net
+psn.com
+sonyentertainmentnetwork.com
+steamcommunity.com
+steamcontent.com
+steampowered.com
+steamserver.net
+steamstatic.com
+steamusercontent.com
+ttvnw.net
+twitch.tv
+twitchcdn.net
+unrealengine.com
+xbox.com
+xboxlive.com
+xboxservices.com

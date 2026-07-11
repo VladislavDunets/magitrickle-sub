@@ -1,0 +1,7 @@
+# MagiTrickle subscription: dev/docker
+# Generated automatically. One rule per line.
+
+docker.com
+docker.io
+dockerhub.com
+dockerusercontent.com

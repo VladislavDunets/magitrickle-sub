@@ -1,0 +1,18 @@
+# MagiTrickle subscription: social/all-social
+# Generated automatically. One rule per line.
+
+discord.com
+discord.gg
+discord.media
+discordapp.com
+discordapp.net
+discordcdn.com
+redd.it
+reddit.com
+redditmedia.com
+redditstatic.com
+t.me
+telegra.ph
+telegram.me
+telegram.org
+telesco.pe

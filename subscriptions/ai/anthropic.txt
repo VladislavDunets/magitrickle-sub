@@ -1,0 +1,6 @@
+# MagiTrickle subscription: ai/anthropic
+# Generated automatically. One rule per line.
+
+anthropic.com
+claude.ai
+claudeusercontent.com

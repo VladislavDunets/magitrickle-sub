@@ -1,0 +1,7 @@
+# MagiTrickle subscription: media/twitch
+# Generated automatically. One rule per line.
+
+jtvnw.net
+ttvnw.net
+twitch.tv
+twitchcdn.net

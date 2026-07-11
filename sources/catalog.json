@@ -1,0 +1,122 @@
+{
+  "ai/openai": [
+    "openai.com",
+    "chatgpt.com",
+    "oaistatic.com",
+    "oaiusercontent.com",
+    "openaiapi-site.azureedge.net"
+  ],
+  "ai/anthropic": [
+    "anthropic.com",
+    "claude.ai",
+    "claudeusercontent.com"
+  ],
+  "ai/google-ai": [
+    "ai.google.dev",
+    "aistudio.google.com",
+    "gemini.google.com",
+    "generativelanguage.googleapis.com",
+    "makersuite.google.com"
+  ],
+  "ai/perplexity": [
+    "perplexity.ai",
+    "pplx.ai"
+  ],
+  "dev/github": [
+    "github.com",
+    "githubusercontent.com",
+    "githubassets.com",
+    "github.io",
+    "githubstatus.com",
+    "githubcopilot.com"
+  ],
+  "dev/docker": [
+    "docker.com",
+    "docker.io",
+    "dockerhub.com",
+    "dockerusercontent.com"
+  ],
+  "dev/jetbrains": [
+    "jetbrains.com",
+    "jetbrains.net",
+    "intellij.net"
+  ],
+  "dev/cursor": [
+    "cursor.com",
+    "cursor.sh",
+    "cursorapi.com"
+  ],
+  "media/youtube": [
+    "youtube.com",
+    "youtu.be",
+    "ytimg.com",
+    "googlevideo.com",
+    "youtube-nocookie.com",
+    "youtubei.googleapis.com"
+  ],
+  "media/twitch": [
+    "twitch.tv",
+    "twitchcdn.net",
+    "ttvnw.net",
+    "jtvnw.net"
+  ],
+  "media/spotify": [
+    "spotify.com",
+    "scdn.co",
+    "spotifycdn.com"
+  ],
+  "media/netflix": [
+    "netflix.com",
+    "netflix.net",
+    "nflxext.com",
+    "nflximg.com",
+    "nflxso.net",
+    "nflxvideo.net"
+  ],
+  "social/discord": [
+    "discord.com",
+    "discord.gg",
+    "discordapp.com",
+    "discordapp.net",
+    "discordcdn.com",
+    "discord.media"
+  ],
+  "social/telegram": [
+    "telegram.org",
+    "telegram.me",
+    "t.me",
+    "telegra.ph",
+    "telesco.pe"
+  ],
+  "social/reddit": [
+    "reddit.com",
+    "redd.it",
+    "redditmedia.com",
+    "redditstatic.com"
+  ],
+  "gaming/steam": [
+    "steampowered.com",
+    "steamcommunity.com",
+    "steamstatic.com",
+    "steamcontent.com",
+    "steamserver.net",
+    "steamusercontent.com"
+  ],
+  "gaming/xbox": [
+    "xbox.com",
+    "xboxlive.com",
+    "xboxservices.com",
+    "gamepass.com"
+  ],
+  "gaming/playstation": [
+    "playstation.com",
+    "playstation.net",
+    "sonyentertainmentnetwork.com",
+    "psn.com"
+  ],
+  "gaming/epic-games": [
+    "epicgames.com",
+    "unrealengine.com",
+    "epicgames.dev"
+  ]
+}

@@ -1,0 +1,8 @@
+# MagiTrickle subscription: social/telegram
+# Generated automatically. One rule per line.
+
+t.me
+telegra.ph
+telegram.me
+telegram.org
+telesco.pe

@@ -1,0 +1,7 @@
+# MagiTrickle subscription: gaming/xbox
+# Generated automatically. One rule per line.
+
+gamepass.com
+xbox.com
+xboxlive.com
+xboxservices.com

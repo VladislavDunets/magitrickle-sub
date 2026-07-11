@@ -1,0 +1,6 @@
+# MagiTrickle subscription: media/spotify
+# Generated automatically. One rule per line.
+
+scdn.co
+spotify.com
+spotifycdn.com

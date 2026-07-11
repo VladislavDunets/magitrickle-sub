@@ -1,0 +1,6 @@
+# MagiTrickle subscription: dev/jetbrains
+# Generated automatically. One rule per line.
+
+intellij.net
+jetbrains.com
+jetbrains.net

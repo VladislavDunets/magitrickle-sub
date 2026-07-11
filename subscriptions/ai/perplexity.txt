@@ -1,0 +1,5 @@
+# MagiTrickle subscription: ai/perplexity
+# Generated automatically. One rule per line.
+
+perplexity.ai
+pplx.ai

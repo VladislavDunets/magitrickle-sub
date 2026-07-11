@@ -1,0 +1,7 @@
+# MagiTrickle subscription: social/reddit
+# Generated automatically. One rule per line.
+
+redd.it
+reddit.com
+redditmedia.com
+redditstatic.com
