@@ -43,11 +43,11 @@ jobs:
           git add subscriptions
 
           if git diff --cached --quiet; then
-            echo "v2fly lists have not changed"
+            echo "Subscription lists have not changed"
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: update subscriptions from v2fly"
+          git commit -m "chore: update subscriptions"
           git push
