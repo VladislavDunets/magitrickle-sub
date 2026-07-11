@@ -1,0 +1,1 @@
+# magitrickle-sub
