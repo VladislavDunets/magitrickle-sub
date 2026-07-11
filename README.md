@@ -1,76 +1,159 @@
-# MagiTrickle Subscriptions
+<div align="center">
 
-Готовые подписки для MagiTrickle 0.7.0+.
+# 🚀 MagiTrickle Subscriptions
 
-Каждый файл в каталоге `subscriptions/` — обычный текстовый список:
-- один домен, IP или подсеть на строку;
-- строки, начинающиеся с `#`, считаются комментариями;
-- MagiTrickle автоматически определяет тип правила;
-- дубликаты удаляются при генерации.
+### Автоматически обновляемые подписки для MagiTrickle
 
-## Быстрый старт
+![GitHub last commit](https://img.shields.io/github/last-commit/VladislavDunets/magitrickle-sub)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/VladislavDunets/magitrickle-sub/update-subscriptions.yml)
+![License](https://img.shields.io/github/license/VladislavDunets/magitrickle-sub)
 
-1. Откройте нужный файл в GitHub.
-2. Нажмите **Raw**.
-3. Скопируйте адрес.
-4. В MagiTrickle откройте раздел подписок.
-5. Добавьте URL и выберите нужную группу маршрутизации.
+Подборка готовых подписок для **MagiTrickle** с ежедневическим автоматическим обновлением из **v2fly/domain-list-community**.
 
-После публикации репозитория URL будет выглядеть так:
+</div>
+
+---
+
+# 📌 Возможности
+
+- 🔄 Автоматическое обновление каждый день
+- 🤖 Отдельная подписка для AI-сервисов
+- 💬 Telegram и Discord
+- 📷 Meta (Facebook, Instagram, Messenger, Threads, WhatsApp)
+- 📺 Twitch
+- ⚡ Готовые ссылки для подключения в MagiTrickle
+- 🛠 Полностью открытый исходный код
+
+---
+
+# 📦 Доступные подписки
+
+| Подписка | Что входит |
+|----------|------------|
+| 🤖 AI | ChatGPT, Claude, Gemini, DeepSeek, Grok, Perplexity, Mistral, Cohere, Hugging Face и другие |
+| 💬 Discord | Домены Discord |
+| ✈ Telegram | Домены Telegram |
+| 📷 Meta | Facebook, Instagram, Messenger, Threads, WhatsApp, Oculus |
+| 📺 Twitch | Twitch и связанные CDN |
+
+---
+
+# 🚀 Подключение
+
+В MagiTrickle откройте раздел **Подписки**, нажмите **Добавить** и вставьте одну из ссылок ниже.
+
+## 🤖 AI
 
 ```text
-https://raw.githubusercontent.com/USERNAME/magitrickle-sub/main/subscriptions/ai/openai.txt
+https://raw.githubusercontent.com/VladislavDunets/magitrickle-sub/main/subscriptions/ai.txt
 ```
 
-Замените `USERNAME` на свой GitHub-логин.
+---
 
-## Готовые наборы
+## 💬 Discord
 
-### AI
-- `ai/openai.txt`
-- `ai/anthropic.txt`
-- `ai/google-ai.txt`
-- `ai/perplexity.txt`
-- `ai/all-ai.txt`
+```text
+https://raw.githubusercontent.com/VladislavDunets/magitrickle-sub/main/subscriptions/discord.txt
+```
 
-### Разработка
-- `dev/github.txt`
-- `dev/docker.txt`
-- `dev/jetbrains.txt`
-- `dev/cursor.txt`
-- `dev/all-dev.txt`
+---
 
-### Медиа
-- `media/youtube.txt`
-- `media/twitch.txt`
-- `media/spotify.txt`
-- `media/netflix.txt`
-- `media/all-media.txt`
+## ✈ Telegram
 
-### Общение
-- `social/discord.txt`
-- `social/telegram.txt`
-- `social/reddit.txt`
-- `social/all-social.txt`
+```text
+https://raw.githubusercontent.com/VladislavDunets/magitrickle-sub/main/subscriptions/telegram.txt
+```
 
-### Игры
-- `gaming/steam.txt`
-- `gaming/xbox.txt`
-- `gaming/playstation.txt`
-- `gaming/epic-games.txt`
-- `gaming/all-gaming.txt`
+---
 
-### Комплексные наборы
-- `bundles/developer.txt`
-- `bundles/gamer.txt`
-- `bundles/everything.txt`
+## 📷 Meta
 
-## Автоматическое обновление
+```text
+https://raw.githubusercontent.com/VladislavDunets/magitrickle-sub/main/subscriptions/meta-instagram.txt
+```
 
-GitHub Action запускает `scripts/build.py` каждый день и обновляет объединённые наборы.
+---
 
-Исходные домены хранятся в `sources/catalog.json`. На первом этапе они поддерживаются вручную, чтобы списки оставались компактными и предсказуемыми. Позже генератор можно расширить импортом из `v2fly/domain-list-community`.
+## 📺 Twitch
 
-## Важное замечание
+```text
+https://raw.githubusercontent.com/VladislavDunets/magitrickle-sub/main/subscriptions/twitch.txt
+```
 
-Домены сервисов меняются. Перед включением большого набора рекомендуется проверить, не попали ли туда общие CDN-домены, маршрутизация которых через VPN может затронуть посторонние сайты.
+---
+
+# 🔄 Как происходит обновление
+
+Каждый день GitHub Actions автоматически:
+
+1. Скачивает актуальные правила из **v2fly/domain-list-community**
+2. Генерирует подписки для MagiTrickle
+3. Если обнаружены изменения — публикует новую версию файлов
+
+Схема работы:
+
+```text
+v2fly/domain-list-community
+            │
+            ▼
+     GitHub Actions
+            │
+            ▼
+ Генерация подписок
+            │
+            ▼
+      GitHub Raw
+            │
+            ▼
+      MagiTrickle
+```
+
+После этого MagiTrickle автоматически скачивает обновлённую подписку по указанному URL.
+
+---
+
+# 📁 Структура проекта
+
+```text
+.
+├── subscriptions/
+│   ├── ai.txt
+│   ├── discord.txt
+│   ├── meta-instagram.txt
+│   ├── telegram.txt
+│   └── twitch.txt
+│
+├── scripts/
+│   └── build.py
+│
+├── sources/
+│   └── config.json
+│
+└── .github/
+    └── workflows/
+```
+
+---
+
+# ❤️ Источники
+
+Проект использует данные:
+
+- https://github.com/v2fly/domain-list-community
+
+---
+
+# 🤝 Как помочь проекту
+
+Если вы нашли отсутствующий сервис или ошибку в правилах:
+
+- создайте **Issue**;
+- либо отправьте **Pull Request**.
+
+Любые предложения по новым подпискам приветствуются.
+
+---
+
+# 📄 Лицензия
+
+MIT
