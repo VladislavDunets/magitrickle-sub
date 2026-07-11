@@ -1,0 +1,53 @@
+{
+  "upstream": {
+    "base_url": "https://raw.githubusercontent.com/v2fly/domain-list-community/master/data"
+  },
+  "subscriptions": {
+    "twitch": {
+      "v2fly": [
+        "twitch"
+      ],
+      "manual": []
+    },
+    "discord": {
+      "v2fly": [
+        "discord"
+      ],
+      "manual": []
+    },
+    "meta-instagram": {
+      "v2fly": [
+        "meta"
+      ],
+      "manual": []
+    },
+    "telegram": {
+      "v2fly": [
+        "telegram"
+      ],
+      "manual": []
+    },
+    "ai": {
+      "v2fly": [
+        "openai",
+        "anthropic",
+        "google-deepmind",
+        "perplexity",
+        "xai",
+        "deepseek"
+      ],
+      "manual": [
+        "mistral.ai",
+        "chat.mistral.ai",
+        "codestral.com",
+        "cohere.com",
+        "character.ai",
+        "huggingface.co",
+        "hf.co"
+      ]
+    }
+  },
+  "exclude_attributes": [
+    "ads"
+  ]
+}

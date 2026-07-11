@@ -1,90 +1,193 @@
 #!/usr/bin/env python3
-"""Generate MagiTrickle-compatible subscriptions from sources/catalog.json."""
+"""Build MagiTrickle subscriptions from v2fly/domain-list-community."""
 
 from __future__ import annotations
 
 import json
+import re
 import sys
+import urllib.error
+import urllib.request
+from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CATALOG_PATH = ROOT / "sources" / "catalog.json"
-OUT_DIR = ROOT / "subscriptions"
-
-BUNDLES = {
-    "ai/all-ai": [
-        "ai/openai", "ai/anthropic", "ai/google-ai", "ai/perplexity"
-    ],
-    "dev/all-dev": [
-        "dev/github", "dev/docker", "dev/jetbrains", "dev/cursor"
-    ],
-    "media/all-media": [
-        "media/youtube", "media/twitch", "media/spotify", "media/netflix"
-    ],
-    "social/all-social": [
-        "social/discord", "social/telegram", "social/reddit"
-    ],
-    "gaming/all-gaming": [
-        "gaming/steam", "gaming/xbox", "gaming/playstation", "gaming/epic-games"
-    ],
-    "bundles/developer": [
-        "ai/openai", "ai/anthropic", "ai/google-ai",
-        "dev/github", "dev/docker", "dev/jetbrains", "dev/cursor",
-        "social/discord"
-    ],
-    "bundles/gamer": [
-        "gaming/steam", "gaming/xbox", "gaming/playstation",
-        "gaming/epic-games", "social/discord", "media/twitch"
-    ],
-}
+CONFIG_PATH = ROOT / "sources" / "config.json"
+OUTPUT_DIR = ROOT / "subscriptions"
+USER_AGENT = "magitrickle-sub/1.0 (+https://github.com/VladislavDunets/magitrickle-sub)"
 
 
-def normalize(value: str) -> str:
+@dataclass(frozen=True)
+class Rule:
+    value: str
+    attributes: frozenset[str]
+
+
+class V2FlyReader:
+    def __init__(self, base_url: str, excluded_attributes: set[str]) -> None:
+        self.base_url = base_url.rstrip("/")
+        self.excluded_attributes = excluded_attributes
+        self.cache: dict[str, set[str]] = {}
+        self.active: set[str] = set()
+
+    def fetch(self, category: str) -> str:
+        url = f"{self.base_url}/{category}"
+        request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return response.read().decode("utf-8")
+        except urllib.error.HTTPError as exc:
+            raise RuntimeError(
+                f"v2fly category '{category}' returned HTTP {exc.code}: {url}"
+            ) from exc
+        except (urllib.error.URLError, TimeoutError) as exc:
+            raise RuntimeError(
+                f"cannot download v2fly category '{category}': {exc}"
+            ) from exc
+
+    def resolve(self, category: str) -> set[str]:
+        if category in self.cache:
+            return set(self.cache[category])
+        if category in self.active:
+            raise RuntimeError(f"cyclic v2fly include detected: {category}")
+
+        self.active.add(category)
+        result: set[str] = set()
+
+        try:
+            text = self.fetch(category)
+            for raw_line in text.splitlines():
+                line = raw_line.split("#", 1)[0].strip()
+                if not line:
+                    continue
+
+                parts = line.split()
+                token = parts[0]
+                attributes = {
+                    part[1:].lower()
+                    for part in parts[1:]
+                    if part.startswith("@") and len(part) > 1
+                }
+                if attributes & self.excluded_attributes:
+                    continue
+
+                if token.startswith("include:"):
+                    included = token.removeprefix("include:").strip()
+                    if included:
+                        result.update(self.resolve(included))
+                    continue
+
+                converted = self.convert_rule(token)
+                if converted:
+                    result.add(converted)
+        finally:
+            self.active.remove(category)
+
+        self.cache[category] = set(result)
+        return result
+
+    @staticmethod
+    def convert_rule(token: str) -> str | None:
+        """Convert v2fly syntax to a MagiTrickle-compatible rule."""
+        token = token.strip()
+        if not token:
+            return None
+
+        if token.startswith("domain:"):
+            # MagiTrickle treats a normal hostname as Namespace:
+            # the hostname itself plus all subdomains.
+            return normalize_domain(token.removeprefix("domain:"))
+
+        if token.startswith("full:"):
+            # Subscription auto-detection currently classifies hostnames as
+            # Namespace. Using the hostname is slightly broader than v2fly's
+            # exact-match semantics, but remains valid and useful for routing.
+            return normalize_domain(token.removeprefix("full:"))
+
+        if token.startswith("regexp:"):
+            expression = token.removeprefix("regexp:").strip()
+            return expression or None
+
+        if token.startswith("keyword:"):
+            keyword = token.removeprefix("keyword:").strip()
+            return f"*{keyword}*" if keyword else None
+
+        # A bare v2fly hostname has the same meaning as domain:/Namespace.
+        return normalize_domain(token)
+
+
+def normalize_domain(value: str) -> str | None:
     value = value.strip().lower().rstrip(".")
-    if not value or value.startswith("#"):
-        return ""
+    if not value:
+        return None
+    if not re.fullmatch(r"[a-z0-9._-]+", value):
+        return None
     return value
 
 
-def write_list(name: str, values: list[str], title: str | None = None) -> None:
-    clean = sorted({normalize(v) for v in values if normalize(v)})
-    path = OUT_DIR / f"{name}.txt"
+def write_subscription(name: str, rules: set[str], sources: list[str]) -> None:
+    path = OUTPUT_DIR / f"{name}.txt"
     path.parent.mkdir(parents=True, exist_ok=True)
+
     header = [
-        f"# MagiTrickle subscription: {title or name}",
-        "# Generated automatically. One rule per line.",
+        f"# MagiTrickle subscription: {name}",
+        "# Automatically generated from v2fly/domain-list-community.",
+        f"# v2fly categories: {', '.join(sources)}",
+        f"# Rules: {len(rules)}",
+        "# Do not edit this file manually; edit sources/config.json instead.",
         "",
     ]
-    path.write_text("\n".join(header + clean) + "\n", encoding="utf-8")
+    path.write_text(
+        "\n".join(header + sorted(rules)) + "\n",
+        encoding="utf-8",
+    )
 
 
 def main() -> int:
     try:
-        catalog: dict[str, list[str]] = json.loads(
-            CATALOG_PATH.read_text(encoding="utf-8")
-        )
-    except (OSError, json.JSONDecodeError) as exc:
-        print(f"Cannot read catalog: {exc}", file=sys.stderr)
+        config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+        base_url = config["upstream"]["base_url"]
+        subscriptions = config["subscriptions"]
+        excluded = {
+            str(value).lower()
+            for value in config.get("exclude_attributes", [])
+        }
+    except (OSError, KeyError, TypeError, json.JSONDecodeError) as exc:
+        print(f"invalid configuration: {exc}", file=sys.stderr)
         return 1
 
-    for name, values in catalog.items():
-        write_list(name, values)
+    reader = V2FlyReader(base_url, excluded)
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    for bundle_name, members in BUNDLES.items():
-        merged: list[str] = []
-        for member in members:
-            if member not in catalog:
-                print(f"Unknown bundle member: {member}", file=sys.stderr)
-                return 2
-            merged.extend(catalog[member])
-        write_list(bundle_name, merged)
+    generated: set[str] = set()
+    try:
+        for name, definition in subscriptions.items():
+            categories = list(definition.get("v2fly", []))
+            rules: set[str] = set()
 
-    everything: list[str] = []
-    for values in catalog.values():
-        everything.extend(values)
-    write_list("bundles/everything", everything)
+            for category in categories:
+                rules.update(reader.resolve(category))
 
-    print(f"Generated {len(catalog) + len(BUNDLES) + 1} subscriptions")
+            for item in definition.get("manual", []):
+                normalized = normalize_domain(str(item))
+                if normalized:
+                    rules.add(normalized)
+
+            if not rules:
+                raise RuntimeError(f"subscription '{name}' is empty")
+
+            write_subscription(name, rules, categories)
+            generated.add(f"{name}.txt")
+            print(f"{name}: {len(rules)} rules")
+    except RuntimeError as exc:
+        print(f"build failed: {exc}", file=sys.stderr)
+        return 2
+
+    # Delete obsolete generated txt files, but leave other repository files alone.
+    for path in OUTPUT_DIR.glob("*.txt"):
+        if path.name not in generated:
+            path.unlink()
+
     return 0
 
 

@@ -1,4 +1,4 @@
-name: Update subscriptions
+name: Update subscriptions from v2fly
 
 on:
   workflow_dispatch:
@@ -6,18 +6,23 @@ on:
     - cron: "17 3 * * *"
   push:
     paths:
-      - "sources/**"
-      - "scripts/**"
+      - "sources/config.json"
+      - "scripts/build.py"
       - ".github/workflows/update-subscriptions.yml"
 
 permissions:
   contents: write
 
+concurrency:
+  group: update-subscriptions
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -28,14 +33,20 @@ jobs:
       - name: Generate subscriptions
         run: python scripts/build.py
 
-      - name: Commit updated lists
+      - name: Show generated files
         run: |
-          if git diff --quiet; then
-            echo "No changes"
+          wc -l subscriptions/*.txt
+          git diff -- subscriptions/
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- subscriptions; then
+            echo "v2fly lists have not changed"
             exit 0
           fi
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add subscriptions
-          git commit -m "chore: update subscriptions"
+          git commit -m "chore: update subscriptions from v2fly"
           git push
