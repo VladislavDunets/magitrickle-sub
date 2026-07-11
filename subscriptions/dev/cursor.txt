@@ -1,6 +1,0 @@
-# MagiTrickle subscription: dev/cursor
-# Generated automatically. One rule per line.
-
-cursor.com
-cursor.sh
-cursorapi.com

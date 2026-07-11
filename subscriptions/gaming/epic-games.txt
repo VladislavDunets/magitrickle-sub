@@ -1,6 +1,0 @@
-# MagiTrickle subscription: gaming/epic-games
-# Generated automatically. One rule per line.
-
-epicgames.com
-epicgames.dev
-unrealengine.com

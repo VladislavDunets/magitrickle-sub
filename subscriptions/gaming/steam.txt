@@ -1,9 +1,0 @@
-# MagiTrickle subscription: gaming/steam
-# Generated automatically. One rule per line.
-
-steamcommunity.com
-steamcontent.com
-steampowered.com
-steamserver.net
-steamstatic.com
-steamusercontent.com

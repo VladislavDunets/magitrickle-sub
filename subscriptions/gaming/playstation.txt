@@ -1,7 +1,0 @@
-# MagiTrickle subscription: gaming/playstation
-# Generated automatically. One rule per line.
-
-playstation.com
-playstation.net
-psn.com
-sonyentertainmentnetwork.com

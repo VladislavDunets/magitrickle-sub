@@ -1,9 +1,0 @@
-# MagiTrickle subscription: dev/github
-# Generated automatically. One rule per line.
-
-github.com
-github.io
-githubassets.com
-githubcopilot.com
-githubstatus.com
-githubusercontent.com

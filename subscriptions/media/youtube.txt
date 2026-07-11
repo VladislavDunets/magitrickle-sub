@@ -1,9 +1,0 @@
-# MagiTrickle subscription: media/youtube
-# Generated automatically. One rule per line.
-
-googlevideo.com
-youtu.be
-youtube-nocookie.com
-youtube.com
-youtubei.googleapis.com
-ytimg.com

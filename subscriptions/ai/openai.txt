@@ -1,8 +1,0 @@
-# MagiTrickle subscription: ai/openai
-# Generated automatically. One rule per line.
-
-chatgpt.com
-oaistatic.com
-oaiusercontent.com
-openai.com
-openaiapi-site.azureedge.net

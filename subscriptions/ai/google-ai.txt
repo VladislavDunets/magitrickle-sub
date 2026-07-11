@@ -1,8 +1,0 @@
-# MagiTrickle subscription: ai/google-ai
-# Generated automatically. One rule per line.
-
-ai.google.dev
-aistudio.google.com
-gemini.google.com
-generativelanguage.googleapis.com
-makersuite.google.com

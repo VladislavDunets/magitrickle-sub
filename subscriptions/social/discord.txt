@@ -1,9 +1,0 @@
-# MagiTrickle subscription: social/discord
-# Generated automatically. One rule per line.
-
-discord.com
-discord.gg
-discord.media
-discordapp.com
-discordapp.net
-discordcdn.com
