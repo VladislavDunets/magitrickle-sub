@@ -58,11 +58,24 @@ https://raw.githubusercontent.com/VladislavDunets/magitrickle-sub/main/subscript
 
 ---
 
-## ✈ Telegram
+## ✈ Telegram (домены)
 
 ```text
 https://raw.githubusercontent.com/VladislavDunets/magitrickle-sub/main/subscriptions/telegram.txt
 ```
+
+---
+
+## 🌐 Telegram IPList
+
+Официальные IPv4/IPv6 диапазоны Telegram.
+
+```text
+https://raw.githubusercontent.com/VladislavDunets/magitrickle-sub/main/subscriptions/telegram-ip.txt
+```
+
+> **Рекомендуется использовать вместе с `telegram.txt`.**
+> Домены обеспечивают корректную маршрутизацию DNS-запросов, а IPList позволяет маршрутизировать MTProto-трафик, который Telegram часто отправляет напрямую по IP-адресам.
 
 ---
 
