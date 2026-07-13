@@ -1,6 +1,6 @@
 # MagiTrickle subscription: ai
 # Source: v2fly/domain-list-community: openai, anthropic, google-deepmind, perplexity, xai, deepseek
-# Rules: 82
+# Rules: 83
 # Generated automatically. Do not edit manually.
 
 ^chatgpt-async-webps-prod-\S+-\d+\.webpubsub\.azure\.com$
@@ -23,6 +23,7 @@ chat.com
 chat.mistral.ai
 chatgpt.com
 chatgpt.livekit.cloud
+chatgpt.site
 clau.de
 claude.ai
 claude.com
