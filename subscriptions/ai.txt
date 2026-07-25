@@ -1,6 +1,6 @@
 # MagiTrickle subscription: ai
-# Source: v2fly/domain-list-community: openai, anthropic, google-deepmind, perplexity, xai, deepseek
-# Rules: 84
+# Source: v2fly/domain-list-community: openai, google-deepmind, perplexity, xai, deepseek
+# Rules: 76
 # Generated automatically. Do not edit manually.
 
 ^chatgpt-async-webps-prod-\S+-\d+\.webpubsub\.azure\.com$
@@ -12,7 +12,6 @@ aisandbox-pa.googleapis.com
 aistudio.google.com
 alkalicore-pa.clients6.google.com
 alkalimakersuite-pa.clients6.google.com
-anthropic.com
 antigravity-pa.googleapis.com
 antigravity-unleash.goog
 antigravity.google
@@ -24,12 +23,6 @@ chat.mistral.ai
 chatgpt.com
 chatgpt.livekit.cloud
 chatgpt.site
-clau.de
-claude.ai
-claude.com
-claudemcpclient.com
-claudemcpcontent.com
-claudeusercontent.com
 cloudaicompanion.googleapis.com
 cloudcode-pa.googleapis.com
 codestral.com
@@ -81,7 +74,6 @@ pplx.ai
 proactivebackend-pa.googleapis.com
 production-openaicom-storage.azureedge.net
 robinfrontend-pa.googleapis.com
-servd-anthropic-website.b-cdn.net
 sora.com
 stitch.withgoogle.com
 turn.livekit.cloud

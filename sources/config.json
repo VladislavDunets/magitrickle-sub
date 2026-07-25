@@ -21,6 +21,12 @@
       ],
       "manual": []
     },
+    "anthropic-claude": {
+      "v2fly": [
+        "anthropic"
+      ],
+      "manual": []
+    },
     "meta-instagram": {
       "v2fly": [
         "meta"
@@ -36,7 +42,6 @@
     "ai": {
       "v2fly": [
         "openai",
-        "anthropic",
         "google-deepmind",
         "perplexity",
         "xai",

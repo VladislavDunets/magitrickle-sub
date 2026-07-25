@@ -1,0 +1,13 @@
+# MagiTrickle subscription: anthropic-claude
+# Source: v2fly/domain-list-community: anthropic
+# Rules: 8
+# Generated automatically. Do not edit manually.
+
+anthropic.com
+clau.de
+claude.ai
+claude.com
+claudemcpclient.com
+claudemcpcontent.com
+claudeusercontent.com
+servd-anthropic-website.b-cdn.net

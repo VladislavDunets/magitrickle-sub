@@ -22,6 +22,7 @@
 - 🌐 Доменные списки из `v2fly/domain-list-community`
 - 📡 Официальные IPv4/IPv6-сети Telegram
 - 🤖 Отдельная подписка для AI-сервисов
+- 🧠 Отдельная подписка для Anthropic и Claude
 - 💬 Telegram и Discord
 - ☁️ DigitalOcean и связанные сервисы
 - 📷 Meta, Instagram и связанные сервисы
@@ -35,7 +36,8 @@
 
 | Подписка | Тип правил | Что входит |
 |---|---|---|
-| 🤖 AI | Домены | ChatGPT, Claude, Gemini, DeepSeek, Grok, Perplexity, Mistral, Cohere, Hugging Face и другие |
+| 🤖 AI | Домены | ChatGPT, Gemini, DeepSeek, Grok, Perplexity, Mistral, Cohere, Hugging Face и другие |
+| 🧠 Anthropic + Claude | Домены | Claude, Anthropic, Claude MCP и связанные сервисы |
 | 💬 Discord | Домены | Discord и связанные домены |
 | ☁️ DigitalOcean | Домены | DigitalOcean, Spaces, облачная панель и связанные сервисы |
 | ✈ Telegram | Домены | Telegram, `t.me`, Telegraph, Fragment, TON и связанные сервисы |
@@ -55,6 +57,12 @@
 
 ```text
 https://raw.githubusercontent.com/VladislavDunets/magitrickle-sub/main/subscriptions/ai.txt
+```
+
+### 🧠 Anthropic + Claude
+
+```text
+https://raw.githubusercontent.com/VladislavDunets/magitrickle-sub/main/subscriptions/anthropic-claude.txt
 ```
 
 ### 💬 Discord
@@ -136,6 +144,7 @@ https://github.com/v2fly/domain-list-community
 Из него формируются списки:
 
 - AI;
+- Anthropic + Claude;
 - Discord;
 - DigitalOcean;
 - Telegram Domains;
@@ -200,6 +209,7 @@ MagiTrickle
 │
 ├── subscriptions/
 │   ├── ai.txt
+│   ├── anthropic-claude.txt
 │   ├── discord.txt
 │   ├── digitalocean.txt
 │   ├── meta-instagram.txt
@@ -219,7 +229,7 @@ MagiTrickle
 
 Подписка `telegram-ip.txt` предназначена для маршрутизации всей сетевой инфраструктуры Telegram и может включать IPv4- и IPv6-диапазоны всех его дата-центров.
 
-IP-сети для Discord, DigitalOcean, Twitch, Meta и AI-сервисов намеренно не добавляются: многие из этих сервисов используют общие сети Cloudflare, Fastly, Akamai и других CDN. Маршрутизация таких CIDR может затронуть посторонние сайты.
+IP-сети для Anthropic, Claude, Discord, DigitalOcean, Twitch, Meta и AI-сервисов намеренно не добавляются: многие из этих сервисов используют общие сети Cloudflare, Fastly, Akamai и других CDN. Маршрутизация таких CIDR может затронуть посторонние сайты.
 
 ---
 
