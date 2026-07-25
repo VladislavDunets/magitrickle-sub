@@ -15,6 +15,12 @@
       ],
       "manual": []
     },
+    "digitalocean": {
+      "v2fly": [
+        "digitalocean"
+      ],
+      "manual": []
+    },
     "meta-instagram": {
       "v2fly": [
         "meta"

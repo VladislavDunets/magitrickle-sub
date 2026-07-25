@@ -1,0 +1,11 @@
+# MagiTrickle subscription: digitalocean
+# Source: v2fly/domain-list-community: digitalocean
+# Rules: 6
+# Generated automatically. Do not edit manually.
+
+digitalocean-ui.com
+digitalocean.com
+digitaloceanspaces.com
+do.co
+nginxconfig.io
+ondigitalocean.com

@@ -23,6 +23,7 @@
 - 📡 Официальные IPv4/IPv6-сети Telegram
 - 🤖 Отдельная подписка для AI-сервисов
 - 💬 Telegram и Discord
+- ☁️ DigitalOcean и связанные сервисы
 - 📷 Meta, Instagram и связанные сервисы
 - 📺 Twitch
 - ⚡ Готовые Raw-ссылки для MagiTrickle
@@ -36,6 +37,7 @@
 |---|---|---|
 | 🤖 AI | Домены | ChatGPT, Claude, Gemini, DeepSeek, Grok, Perplexity, Mistral, Cohere, Hugging Face и другие |
 | 💬 Discord | Домены | Discord и связанные домены |
+| ☁️ DigitalOcean | Домены | DigitalOcean, Spaces, облачная панель и связанные сервисы |
 | ✈ Telegram | Домены | Telegram, `t.me`, Telegraph, Fragment, TON и связанные сервисы |
 | 🌐 Telegram IPList | IPv4 и IPv6 CIDR | Официальные IP-сети Telegram |
 | 📷 Meta + Instagram | Домены | Facebook, Instagram, Messenger, Threads, WhatsApp, Oculus |
@@ -59,6 +61,12 @@ https://raw.githubusercontent.com/VladislavDunets/magitrickle-sub/main/subscript
 
 ```text
 https://raw.githubusercontent.com/VladislavDunets/magitrickle-sub/main/subscriptions/discord.txt
+```
+
+### ☁️ DigitalOcean
+
+```text
+https://raw.githubusercontent.com/VladislavDunets/magitrickle-sub/main/subscriptions/digitalocean.txt
 ```
 
 ### ✈ Telegram — домены
@@ -129,6 +137,7 @@ https://github.com/v2fly/domain-list-community
 
 - AI;
 - Discord;
+- DigitalOcean;
 - Telegram Domains;
 - Meta + Instagram;
 - Twitch.
@@ -192,6 +201,7 @@ MagiTrickle
 ├── subscriptions/
 │   ├── ai.txt
 │   ├── discord.txt
+│   ├── digitalocean.txt
 │   ├── meta-instagram.txt
 │   ├── telegram.txt
 │   ├── telegram-ip.txt
@@ -209,7 +219,7 @@ MagiTrickle
 
 Подписка `telegram-ip.txt` предназначена для маршрутизации всей сетевой инфраструктуры Telegram и может включать IPv4- и IPv6-диапазоны всех его дата-центров.
 
-IP-сети для Discord, Twitch, Meta и AI-сервисов намеренно не добавляются: многие из этих сервисов используют общие сети Cloudflare, Fastly, Akamai и других CDN. Маршрутизация таких CIDR может затронуть посторонние сайты.
+IP-сети для Discord, DigitalOcean, Twitch, Meta и AI-сервисов намеренно не добавляются: многие из этих сервисов используют общие сети Cloudflare, Fastly, Akamai и других CDN. Маршрутизация таких CIDR может затронуть посторонние сайты.
 
 ---
 
