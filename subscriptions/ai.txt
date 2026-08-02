@@ -1,6 +1,6 @@
 # MagiTrickle subscription: ai
 # Source: v2fly/domain-list-community: openai, google-deepmind, perplexity, xai, deepseek
-# Rules: 77
+# Rules: 78
 # Generated automatically. Do not edit manually.
 
 ^chatgpt-async-webps-prod-\S+-\d+\.webpubsub\.azure\.com$
@@ -51,6 +51,7 @@ labs.google
 labs.google.com
 makersuite.google.com
 mistral.ai
+notebook.google.com
 notebooklm-pa.googleapis.com
 notebooklm.google
 notebooklm.google.com
