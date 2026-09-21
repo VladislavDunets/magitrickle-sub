@@ -1,6 +1,6 @@
 # MagiTrickle subscription: meta-instagram
 # Source: v2fly/domain-list-community: meta
-# Rules: 547
+# Rules: 548
 # Generated automatically. Do not edit manually.
 
 aboutfacebook.com
@@ -518,6 +518,7 @@ sportsfacebook.com
 sportstream.com
 supportfacebook.com
 terragraph.com
+tfbnw.net
 thefacebook.com
 thefacebook.net
 thefind.com
