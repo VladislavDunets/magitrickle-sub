@@ -1,6 +1,6 @@
 # MagiTrickle subscription: meta-instagram
 # Source: v2fly/domain-list-community: meta
-# Rules: 548
+# Rules: 550
 # Generated automatically. Do not edit manually.
 
 aboutfacebook.com
@@ -472,9 +472,11 @@ messenger.com
 messengerdevelopers.com
 meta.ai
 meta.com
+metaaivm.com
 midentsolutions.com
 mobilefacebook.com
 moneywithfacebook.com
+muse.ai
 myfbfans.com
 nbabot.net
 newsfeed.com
