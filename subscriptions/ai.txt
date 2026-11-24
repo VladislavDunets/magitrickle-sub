@@ -1,6 +1,6 @@
 # MagiTrickle subscription: ai
 # Source: v2fly/domain-list-community: openai, google-deepmind, perplexity, xai, deepseek
-# Rules: 89
+# Rules: 90
 # Generated automatically. Do not edit manually.
 
 ^chatgpt-async-webps-prod-\S+-\d+\.webpubsub\.azure\.com$
@@ -44,6 +44,7 @@ gemini.google.com
 gemini.gstatic.com
 geminiweb-pa.clients.google.com
 geminiweb-pa.clients6.google.com
+gemma.ai
 generativeai.google
 generativelanguage.googleapis.com
 grok.com
